@@ -61,6 +61,8 @@ body {
   justify-content: center;
   text-align: center;
   margin-bottom: var(--spacing-2xl);
+  margin-inline: auto;
+  max-width: 35rem;
 }
 
 .title h2 {
@@ -146,8 +148,7 @@ body {
   }
 
   .title {
-    max-width: 35rem;
-    justify-self: center;
+    margin-inline: auto;
   }
 
   .title h2 {
