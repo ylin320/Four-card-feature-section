@@ -1,0 +1,194 @@
+:root {
+  /* Colors */
+  --color-Red: hsl(0, 78%, 62%);
+  --color-Cyan: hsl(180, 62%, 55%);
+  --color-Orange: hsl(34, 97%, 64%);
+  --color-Blue: hsl(212, 86%, 64%);
+  --color-Grey-500: hsl(234, 12%, 34%);
+  --color-Grey-400: hsl(212, 6%, 44%);
+  --color-White: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --font-family-poppins: "Poppins", sans-serif;
+  --font-weight-extra-thin: 200;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-size-xs: 0.5rem;
+  --font-size-sm: 0.75rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-2xl: 2.5rem;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+
+  /* Border radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 24px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-Grey-400);
+  background-color: var(--color-White);
+  padding: var(--spacing-lg);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.title h2 {
+  font-weight: var(--font-weight-extra-thin);
+  font-size: 1.68rem;
+}
+
+.title h1 {
+  color: var(--color-Grey-500);
+  font-size: 1.68rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.title p {
+  margin: var(--spacing-md) 0;
+  font-size: var(--font-size-md);
+}
+
+.cards {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+.card {
+  position: relative;
+  max-width: 22rem;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-xl);
+  box-shadow: 0 10px 10px 5px rgb(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.card img {
+  padding-top: var(--spacing-lg);
+  align-self: flex-end;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: var(--color-Cyan);
+}
+
+.card-supervisor::before {
+  background-color: var(--color-Cyan);
+}
+
+.card-team-builder::before {
+  background-color: var(--color-Red);
+}
+
+.card-karma::before {
+  background-color: var(--color-Orange);
+}
+
+.card-calculator::before {
+  background-color: var(--color-Blue);
+}
+
+.card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.card p {
+  font-size: 0.85rem;
+}
+
+/* Tablet and up */
+@media only screen and (min-width: 650px) {
+  body {
+  }
+
+  .title {
+    max-width: 35rem;
+    justify-self: center;
+  }
+
+  .title h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .title h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .title p {
+    font-size: var(--font-size-md);
+  }
+
+  .cards {
+    max-width: 70rem;
+    grid-template-columns: repeat(3, minmax(auto, 1fr));
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      ". team ."
+      "supervisor team calculator"
+      "supervisor karma calculator"
+      ". karma .";
+    align-items: center;
+    justify-items: center;
+    gap: var(--spacing-xl);
+  }
+
+  .card-supervisor {
+    grid-area: supervisor;
+  }
+
+  .card-team-builder {
+    grid-area: team;
+  }
+
+  .card-karma {
+    grid-area: karma;
+  }
+
+  .card-calculator {
+    grid-area: calculator;
+  }
+}
